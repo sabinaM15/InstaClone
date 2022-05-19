@@ -2,13 +2,12 @@ import React from "react"
 import {View, StyleSheet, Image} from 'react-native'
 import LogInForm from '../components/logIn/LogInForm'
 
-const LogInScreen = () => (
+const LogInScreen = ({navigation}) => (
     <View style = {styles.container}>
       <View style = {styles.logoContainer}>
         <Image source={require('../assets/Logo.png')} style = {{height: 150, width: 150}}/>
-
       </View>
-      <LogInForm/>
+      <LogInForm navigation = {navigation}/>
 
     </View>
 )

@@ -1,16 +1,14 @@
 import React, {useState} from "react"
-import { View, StyleSheet, TextInput, Text, Pressable } from "react-native"
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, StyleSheet, TextInput, Text, Pressable, TouchableOpacity } from "react-native"
 import { Formik } from "formik";
 import * as Yup from 'yup'
 import { Validator } from "email-validator";
-import { isValid } from "ipaddr.js";
 
-const LofInForm = () => {
+const LogInForm = ({navigation}) => {
 
   const LogInFormSchema = Yup.object().shape({
     email: Yup.string().email().required('An email is required'),
-    password: Yup.string().required().min(6, 'Your password has to have at least 8 characters')
+    password: Yup.string().required().min(6, 'Your password has to have at least 6 characters')
   })
 
   return(
@@ -25,11 +23,11 @@ const LofInForm = () => {
         >
           {({handleChange, handleBlur, handleSubmit, values, isValid}) => (
             <>
-              <View style = {[styles.inputField,
+              <View style = {styles.inputField
                 // {borderColor: 
                 //   values.email.length < 1 || Validator.validate(values.email) ? 'black' : 'red'
                 // }
-              ]}>
+              }>
                   <TextInput
                       placeholderTextColor = 'gray'
                       placeholder= 'Phone number, username or email'
@@ -43,11 +41,7 @@ const LofInForm = () => {
                       />
               </View>
               
-              <View style = {[styles.inputField, 
-                // {borderColor: 
-                //   1 > values.password.length || values.password.length >= 6 ? 'black' : 'red'
-                // }
-              ]}>
+              <View style = {styles.inputField}>
                   <TextInput
                       placeholderTextColor = 'gray'
                       placeholder= 'Password'
@@ -73,11 +67,13 @@ const LofInForm = () => {
 
               <View style = {styles.signUpContainer}>
                 <Text>Don't have an account?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.push('SignUp')}
+                >
                   <Text style = {styles.signUpText}>Sign Up</Text>
                 </TouchableOpacity>
-
               </View>
+
             </>
           )}
       </Formik>
@@ -85,7 +81,7 @@ const LofInForm = () => {
   )
 }
 
-export default LofInForm;
+export default LogInForm;
 
 const styles = StyleSheet.create({
   inputField: {
@@ -96,14 +92,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#F7E9EF'
   },
   wrapper:{
-      marginTop: 80,
+      marginTop: 30,
   },
   button: isValid => ({
     backgroundColor: isValid ? '#F17F30' : '#F6B282',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
-    minHeight: 42
+    minHeight: 42,
+    marginTop: 40
   }),
   textButton: {
     fontWeight: '500',
