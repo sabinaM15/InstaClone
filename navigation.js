@@ -12,18 +12,23 @@ const Stack = createStackNavigator()
 const screenOptions = {
     headerShown: false
 }
-const SignedInStack = () => (
+export const SignedInStack = () => (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName= "LogIn" screenOptions={screenOptions}>
+        <Stack.Navigator initialRouteName= "Home" screenOptions={screenOptions}>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="NewPost" component={NewPostScreen} />
-            <Stack.Screen name="LogIn" component={LogInScreen} />
-            <Stack.Screen name="SignUp" component={SignUpScreen} />
-
-            {/* <Stack.Screen name="LogOut" component={LogOutScreen} /> */}
+            <Stack.Screen name="LogOut" component={LogOutScreen} />
         </Stack.Navigator>
     </NavigationContainer>
     
 )
 
-export default SignedInStack;
+export const SignedOutStack = () => (
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName= "LogIn" screenOptions={screenOptions}>
+            <Stack.Screen name="LogIn" component={LogInScreen} />
+            <Stack.Screen name="SignUp" component={SignUpScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+)
+
