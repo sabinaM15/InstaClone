@@ -1,35 +1,56 @@
 import React, {useState} from "react"
-import { View, StyleSheet, TextInput, Text, Pressable } from "react-native"
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, StyleSheet, TextInput, Text, Pressable, TouchableOpacity, Alert } from "react-native"
 import { Formik } from "formik";
 import * as Yup from 'yup'
 import { Validator } from "email-validator";
-import { isValid } from "ipaddr.js";
+import { firebase } from "../../firebase";
 
-const LofInForm = () => {
+const LogInForm = ({navigation}) => {
 
   const LogInFormSchema = Yup.object().shape({
     email: Yup.string().email().required('An email is required'),
-    password: Yup.string().required().min(6, 'Your password has to have at least 8 characters')
+    password: Yup.string().required().min(6, 'Your password has to have at least 6 characters')
   })
+
+  const onLogIn = async (email, password) => {
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password)
+      console.log("Firebase Login Successful 🔥", email, password)
+    }catch(error){
+      Alert.alert(
+        'Something went wrong...',
+        error.message + '/n What would you like to do next ?',
+        [
+          {
+            text: 'OK',
+            onPress: () => console.log('OK'),
+            style: 'cancel'
+          },
+          {
+            text: 'Sign Up', onPress: () => navigation.push('SignUp')
+          }
+        ]
+      )
+    }
+  }
 
   return(
     <View style = {styles.wrapper}>
       <Formik
         initialValues={{email: '', password: ''}}
         onSubmit={values => {
-          console.log(values)
+          onLogIn(values.email, values.password)
         }}
         validationSchema = {LogInFormSchema}
         validateOnMount = {true}
         >
           {({handleChange, handleBlur, handleSubmit, values, isValid}) => (
             <>
-              <View style = {[styles.inputField,
+              <View style = {styles.inputField
                 // {borderColor: 
                 //   values.email.length < 1 || Validator.validate(values.email) ? 'black' : 'red'
                 // }
-              ]}>
+              }>
                   <TextInput
                       placeholderTextColor = 'gray'
                       placeholder= 'Phone number, username or email'
@@ -43,11 +64,7 @@ const LofInForm = () => {
                       />
               </View>
               
-              <View style = {[styles.inputField, 
-                // {borderColor: 
-                //   1 > values.password.length || values.password.length >= 6 ? 'black' : 'red'
-                // }
-              ]}>
+              <View style = {styles.inputField}>
                   <TextInput
                       placeholderTextColor = 'gray'
                       placeholder= 'Password'
@@ -73,11 +90,13 @@ const LofInForm = () => {
 
               <View style = {styles.signUpContainer}>
                 <Text>Don't have an account?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.push('SignUp')}
+                >
                   <Text style = {styles.signUpText}>Sign Up</Text>
                 </TouchableOpacity>
-
               </View>
+
             </>
           )}
       </Formik>
@@ -85,7 +104,7 @@ const LofInForm = () => {
   )
 }
 
-export default LofInForm;
+export default LogInForm;
 
 const styles = StyleSheet.create({
   inputField: {
@@ -93,17 +112,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 12,
     marginBottom: 10,
-    backgroundColor: '#F7E9EF'
+    backgroundColor: '#FFFFFF'
   },
   wrapper:{
-      marginTop: 80,
+    marginTop: 30,
+    // backgroundColor: 'green',
+    height: '65%'
   },
   button: isValid => ({
-    backgroundColor: isValid ? '#F17F30' : '#F6B282',
+    backgroundColor: isValid ? '#5E3B8E' : '#A971F5',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
-    minHeight: 42
+    minHeight: 42,
+    marginTop: 40
   }),
   textButton: {
     fontWeight: '500',
@@ -113,10 +135,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: '100%',
     justifyContent: 'center',
-    marginTop: 150
+    alignItems: 'center',
+    marginBottom: 200,
+    // backgroundColor: 'red',
+    height: '70%'
   },
   signUpText:{
-    color: '#F17F30',
+    color: '#A971F5',
   }
   
 })

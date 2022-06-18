@@ -1,11 +1,11 @@
 export const Users = [
     {
-        user: 'Sabina',
-        image: 'https://scontent.fotp3-2.fna.fbcdn.net/v/t39.30808-6/215975505_4129958653720083_4710859942483973229_n.jpg?_nc_cat=100&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=8k7qfYUfvtkAX_0H3t4&_nc_ht=scontent.fotp3-2.fna&oh=00_AT9KjfgmtQEmO5iZYrz9fkxy6PnTphhyA0pqOgHf50aD-A&oe=6286C717'
+        user: 'sabinaM15',
+        image: 'https://i.pinimg.com/236x/3b/14/3f/3b143ff454e4a30eec7958e1fcad1d94.jpg'
     },
     {
-        user: 'Cosmin',
-        image: 'https://i.pinimg.com/736x/5d/69/fd/5d69fddc8234cfe34759176f8760e2ef.jpg'
+        user: 'cosmin97',
+        image: 'https://i.pinimg.com/564x/b3/9d/5b/b39d5bb7ee81d3f0d52010e5eeb8bd8c.jpg'
     },
     {
         user: 'geilerepetition',
@@ -13,7 +13,7 @@ export const Users = [
     },
     {
         user: 'beyonce',
-        image: 'https://scontent.fcra2-1.fna.fbcdn.net/v/t39.30808-6/273541035_503140134505624_536987723958061694_n.jpg?_nc_cat=1&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=qLynUm23IEgAX_rfOt3&_nc_ht=scontent.fcra2-1.fna&oh=00_AT99IvR3U7-Pv7uSs2mGa6iITKxCEWbII68O4hNfyxozNQ&oe=627E9C11'
+        image: 'https://i.pinimg.com/236x/77/88/34/778834445aa5d8cf72e16dd09ce1a20f.jpg'
     },
     {
         user: 'residueschecker',
@@ -21,7 +21,7 @@ export const Users = [
     },
     {
         user: 'arianagrande',
-        image: 'https://scontent.fcra2-1.fna.fbcdn.net/v/t1.6435-9/158690694_284138899731990_5871759233142503543_n.jpg?_nc_cat=1&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=TfPBPlJtwU0AX-Eflwe&tn=yn5EZQjJZ-0vCgDG&_nc_ht=scontent.fcra2-1.fna&oh=00_AT96ZDj_4lqXGCJtA08TCtgfxS3cSX-ivwOOnCluj41buQ&oe=629F9E9B'
+        image: 'https://i.pinimg.com/236x/f8/13/9a/f8139a1cf033a804b458b6781f282b50.jpg'
     },
     {
         user: 'fusereminds123s',
@@ -29,7 +29,7 @@ export const Users = [
     },
     {
         user: 'jlo',
-        image: 'https://scontent.fcra2-1.fna.fbcdn.net/v/t39.30808-6/280123721_568573087964754_1435641650395882390_n.jpg?_nc_cat=1&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=YTrgKk1KwjMAX9Rg2wv&_nc_ht=scontent.fcra2-1.fna&oh=00_AT-oRfy5qq_C5rahxRwnudba84rZyPB-mP7FyU7tvkartg&oe=627EA30F'
+        image: 'https://i.pinimg.com/236x/19/0b/f4/190bf46919e18723fd5e77cf27d917d0.jpg'
     },
     {
         user: 'sybottles',
@@ -37,7 +37,7 @@ export const Users = [
     },
     {
         user: 'michaeljackson',
-        image: 'https://scontent.fcra2-1.fna.fbcdn.net/v/t1.6435-9/155332900_273173237506749_5624823482444457297_n.jpg?_nc_cat=1&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=PQCdENFXRrEAX8LlWNY&_nc_ht=scontent.fcra2-1.fna&oh=00_AT8T-nEAZbYC3ODK9OLcdPnSS62r53kyx_WoYE_SfqNLSg&oe=629D4BC6'
+        image: 'https://i.pinimg.com/236x/b2/a4/c2/b2a4c24349c44efe0b6f640ba5e17905.jpg'
     },
     {
         user: 'kaicigarettes',

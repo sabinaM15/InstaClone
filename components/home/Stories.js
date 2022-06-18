@@ -13,7 +13,7 @@ const Stories = () => {
                         source ={{uri: story.image}} 
                         style = {styles.story}/>
                         <Text style={{color: 'black'}}>{
-                            story.user.length > 11 ? story.user.slice(0, 10).toLowerCase() + '...' : story.user.toLowerCase()
+                            story.user.length > 11 ? story.user.slice(0, 8).toLowerCase() + '...' : story.user.toLowerCase()
                             }
                         </Text>
                     </View>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderRadius: 50,
-        marginLeft: 6,
+        marginLeft: 10,
         borderWidth: 3,
         borderColor: '#B1A3F5'
     }
